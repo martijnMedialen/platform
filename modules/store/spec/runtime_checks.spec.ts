@@ -381,6 +381,8 @@ function reducerWithBugs(state: any = {}, action: any) {
 }
 
 export function makeNgrxAction(action: Action) {
-  action.type = '@ngrx ' + action.type;
-  return action;
+  return {
+    ...action,
+    type: `@ngrx ${action.type}`,
+  };
 }
